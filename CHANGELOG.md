@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-## Alpha1
+## Master
 **Enhancements**
 * Added a JS bot
 * Added a Python bot
