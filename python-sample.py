@@ -3,7 +3,7 @@ def wombat(state, time_left):
     turnRight = {'action': 'turn', 'metadata': { 'direction': 'right'} } 
     shoot = {'action': 'shoot', 'metadata': { } }
     move = {'action': 'move', 'metadata': { } }
-    direction = state['arena'][3][3]
+    direction = state['arena'][3][3]['contents']['orientation']
     
     
     def itemAt(x, y):
