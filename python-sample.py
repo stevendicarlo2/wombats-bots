@@ -23,8 +23,8 @@ def wombat(state, time_left):
         x = state['global-coords']
     
     def facingEdgeOfScreen():
-        width = state['global-dimensions][0] - 1
-        height = state['global-dimensions][1] - 1
+        width = state['global-dimensions'][0] - 1
+        height = state['global-dimensions'][1] - 1
         if direction == 'w':
             return state['global-coords'][0] == 0
         if direction == 'n':
