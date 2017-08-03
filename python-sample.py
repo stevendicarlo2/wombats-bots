@@ -29,7 +29,7 @@ def wombat(state, time_left):
             return [itemAt(3, 4), itemAt(3, 5), itemAt(3, 6)]
         
     def shouldShoot():
-        return 'wombat' in itemsInFront() || 'zakano' in itemsInFront()
+        return 'wombat' in itemsInFront() or 'zakano' in itemsInFront()
 
     
     def facingEdgeOfScreen():
