@@ -21,9 +21,9 @@ def wombat(state, time_left):
     
     if itemInFront() in ['wombat', 'zakano', 'wood-barrier']:
         command = shoot
-    if itemInFront() in ['steel-barrier', 'poison', 'shot', 'fog']:
+    elif itemInFront() in ['steel-barrier', 'poison', 'shot', 'fog']:
         command = turnLeft
-    if itemInFront() in ['food', 'open']:
+    elif itemInFront() in ['food', 'open']:
         command = move
     else:
         command = shoot
