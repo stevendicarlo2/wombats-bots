@@ -18,9 +18,19 @@ def wombat(state, time_left):
             return itemAt(4, 3)
         if direction == 's':
             return itemAt(3, 4)
+    def itemsInFront():
+        if direction == 'w':
+            return [itemAt(2, 3), itemAt(1, 3), itemAt(0, 3)]
+        if direction == 'n':
+            return [itemAt(3, 2), itemAt(3, 1), itemAt(3, 0)]
+        if direction == 'e':
+            return [itemAt(4, 3), itemAt(5, 3), itemAt(6, 3)]
+        if direction == 's':
+            return [itemAt(3, 4), itemAt(3, 5), itemAt(3, 6)]
         
-    def atEdge():
-        x = state['global-coords']
+    def shouldShoot():
+        return 'wombat' in itemsInFront() || 'zakano' in itemsInFront()
+
     
     def facingEdgeOfScreen():
         width = state['global-dimensions'][0] - 1
@@ -34,7 +44,9 @@ def wombat(state, time_left):
         if direction == 's':
             return state['global-coords'][1] == height        
     
-    if itemInFront() in ['wombat', 'zakano', 'wood-barrier']:
+    if shouldShoot():
+        command = shoot
+    elif itemInFront() in ['wombat', 'zakano', 'wood-barrier']:
         command = shoot
     elif itemInFront() in ['steel-barrier', 'poison', 'shot', 'fog']:
         command = turnLeft
