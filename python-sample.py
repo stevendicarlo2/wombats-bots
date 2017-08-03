@@ -3,11 +3,11 @@ def wombat(state, time_left):
     turnRight = {'action': 'turn', 'metadata': { 'direction': 'right'} } 
     shoot = {'action': 'shoot', 'metadata': { } }
     move = {'action': 'move', 'metadata': { } }
-    direction = state['arena'][3][3]['contents']['orientation']['contents']['type']
+    direction = state['arena'][3][3]['contents']['orientation']
     
     
     def itemAt(x, y):
-        return state['arena'][y][x]
+        return state['arena'][y][x]['contents']['type']
     
     def itemInFront():
         if direction == 'w':
