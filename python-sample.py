@@ -3,7 +3,7 @@ def wombat(state, time_left):
     turnRight = {'action': 'turn', 'metadata': { 'direction': 'right'} } 
     shoot = {'action': 'shoot', 'metadata': { } }
     move = {'action': 'move', 'metadata': { } }
-    direction = state['arena'][3][3]['orientation']
+    direction = state['arena'][3][3]
     
     
     def itemAt(x, y):
@@ -25,12 +25,13 @@ def wombat(state, time_left):
         command = turnLeft
     if itemInFront in ['food', 'open']:
         command = move
-    
+    else:
+        command = shoot
     
     
     
     # Note that the function name MUST be wombat
     return {
         'command': command,
-        'state': state
+        'state': direction
     }
