@@ -10,20 +10,20 @@ def wombat(state, time_left):
         return state['arena'][y][x]
     
     def itemInFront():
-        if direction == w:
+        if direction == 'w':
             return itemAt(2, 3)
-        if direction == n:
+        if direction == 'n':
             return itemAt(3, 2)
-        if direction == e:
+        if direction == 'e':
             return itemAt(4, 3)
-        if direction == s:
+        if direction == 's':
             return itemAt(3, 4)
     
-    if itemInFront in ['wombat', 'zakano', 'wood-barrier']:
+    if itemInFront() in ['wombat', 'zakano', 'wood-barrier']:
         command = shoot
-    if itemInFront in ['steel-barrier', 'poison', 'shot', 'fog']:
+    if itemInFront() in ['steel-barrier', 'poison', 'shot', 'fog']:
         command = turnLeft
-    if itemInFront in ['food', 'open']:
+    if itemInFront() in ['food', 'open']:
         command = move
     else:
         command = shoot
